@@ -478,7 +478,7 @@
   <section class="font-mainFont pt-60">
     <div
       class="bg-cover bg-no-repeat h-screen hidden lg:flex items-end"
-      style="background-image: url('../public/assets/img/background-image.svg')"
+      style="background-image: url('/assets/img/background-image.svg')"
     >
       <!-- Your content here -->
       <div class="space-y-6 pb-10">
