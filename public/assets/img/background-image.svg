@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="906" viewBox="0 0 1366 906">
+  <defs>
+    <clipPath id="clip-background-image">
+      <rect width="1366" height="906"/>
+    </clipPath>
+  </defs>
+  <g id="background-image" clip-path="url(#clip-background-image)">
+    <g id="Group_1200" data-name="Group 1200" transform="translate(96.348 -19.653)">
+      <g id="Ellipse_142" data-name="Ellipse 142" transform="translate(58.653 285.653)" fill="rgba(255,255,255,0)" stroke="#f4b41a" stroke-width="10">
+        <circle cx="528" cy="528" r="528" stroke="none"/>
+        <circle cx="528" cy="528" r="523" fill="none"/>
+      </g>
+      <g id="Ellipse_147" data-name="Ellipse 147" transform="translate(-87.347 139.653)" fill="rgba(255,255,255,0)" stroke="#f4b41a" stroke-width="10">
+        <circle cx="672" cy="672" r="672" stroke="none"/>
+        <circle cx="672" cy="672" r="667" fill="none"/>
+      </g>
+      <g id="Ellipse_143" data-name="Ellipse 143" transform="translate(-207.347 19.653)" fill="rgba(255,255,255,0)" stroke="#f4b41a" stroke-width="10">
+        <circle cx="794" cy="794" r="794" stroke="none"/>
+        <circle cx="794" cy="794" r="789" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

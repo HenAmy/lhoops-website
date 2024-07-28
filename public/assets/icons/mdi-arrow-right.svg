@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="MDI_arrow-right" data-name="MDI / arrow-right" transform="translate(-0.368 -0.368)">
+    <g id="Boundary" transform="translate(0.368 0.368)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+      <rect width="20" height="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="19" height="19" fill="none"/>
+    </g>
+    <path id="Path_arrow-right" data-name="Path / arrow-right" d="M4,10.059v1.728H14.368L9.616,16.539l1.227,1.227,6.843-6.843L10.843,4.08,9.616,5.307l4.752,4.752Z" transform="translate(-0.544 -0.624)" fill="#fff"/>
+  </g>
+</svg>
