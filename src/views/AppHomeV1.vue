@@ -1,19 +1,90 @@
 <template>
+  <!-- NAVIGATION -->
+  <nav class="bg-white py-3 top-0 z-10 lg:px-20 px-5 font-mainFont">
+    <!-- ALL MENU -->
+    <div class="flex items-center">
+      <!-- Left Menu -->
+      <div class="hidden lg:flex space-x-6">
+        <router-link to="/terms" class="text-text rounded-full hover:text-primary text-sm">
+          Terms and Conditions
+        </router-link>
+        <!-- <a href="#" class="text-text rounded-full focus:outline-none text-sm">
+            Terms and Conditions
+          </a> -->
+        <router-link to="/privacy" class="text-text rounded-full hover:text-primary text-sm">
+          Privacy Policy
+        </router-link>
+        <!-- <img src="./images/logo-primary.svg" alt="" id="logo" class="w-32 md:w-40"/> -->
+      </div>
+      <!-- Image -->
+      <!-- <div class="z-30"></div> -->
+      <img
+        src="../../public/assets/icons/logo-icon.svg"
+        alt=""
+        id="logo"
+        class="flex w-32 md:w-32 z-10 mx-auto"
+      />
+      <!-- Right Menu -->
+      <div class="hidden lg:flex">
+        <a href="#" class="px-10 py-2 text-white bg-white rounded-full focus:outline-none text-md">
+          Log in
+        </a>
+        <a href="#" class="px-6 py-2 text-text bg-primary rounded-full focus:outline-none text-md">
+          Join waitlist
+        </a>
+      </div>
+      <!-- Hamburger -->
+      <!-- <PhList
+          class="flex lg:hidden cursor-pointer"
+          @click="toggleActive"
+          color="black"
+          weight="bold"
+          :size="30"
+        /> -->
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="menu"
+      v-show="isActive"
+      class="fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white bg-secondary"
+    >
+      <div class="w-full py-3 text-center font-mainFont text-[16px]">
+        <a href="#" class="block hover:text-softRed">Terms and Conditions</a>
+      </div>
+      <div class="w-full py-4 text-center">
+        <a href="#" class="block hover:text-softRed">Privacy Policy</a>
+      </div>
+      <div class="flex flex-col mt-4 space-y-3 justify-center p-1 w-full">
+        <!-- <button
+            class="px-6 py-2 text-text bg-white rounded-md focus:outline-none md:py-2 font-mainFont text-[18px]"
+          >
+            Sign In
+          </button> -->
+        <button
+          class="px-6 py-2 text-white bg-secondary rounded-md focus:outline-none md:py-4 font-mainFont text-[18px]"
+        >
+          Join waitlist
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <!-- FULL HERO -->
   <section class="font-mainFont">
     <div
-      class="bg-cover bg-no-repeat"
+      class="bg-cover bg-no-repeat h-screen"
       style="background-image: url('../../public/assets/img/fading-background.png')"
     >
       <img
         src="../../public/assets/icons/logo-white.svg"
         alt=""
         id="logo"
-        class="flex w-32 md:w-32 z-10 mx-auto py-6"
+        class="flex w-32 md:w-32 z-10 mx-auto"
       />
       <div class="relative h-screen my-6 pt-16">
         <div class="lg:w-2/3 lg:px-0 px-4 space-y-6 mx-auto">
-          <h1 class="md:text-[56px] font-semibold text-center leading-tight text-[56px] text-white">
+          <h1 class="md:text-[56px] font-semibold text-center leading-tight text-[40px] text-white">
             Find and create <br />
             close-knit communities
           </h1>
@@ -24,18 +95,18 @@
           </p>
 
           <!-- <Button
-          variant="outline"
-          @click="
-            () => {
-              toast({
-                title: 'Uh oh! Something went wrong.',
-                description: 'There was a problem with your request.'
-              })
-            }
-          "
-        >
-          Show Toast
-        </Button> -->
+            variant="outline"
+            @click="
+              () => {
+                toast({
+                  title: 'Uh oh! Something went wrong.',
+                  description: 'There was a problem with your request.'
+                })
+              }
+            "
+          >
+            Show Toast
+          </Button> -->
 
           <div v-if="show_alert">
             <Alert class="border-0 text-white" :class="alert_variant">
@@ -95,8 +166,8 @@
 
               <!-- <p class="text-red-600 text-center">Error Message</p> -->
               <!-- <div class="flex justify-center">
-              <ErrorMessage class="text-red-600" name="email" />
-            </div> -->
+                <ErrorMessage class="text-red-600" name="email" />
+              </div> -->
             </div>
             <div class="flex justify-center">
               <ErrorMessage class="text-red-600" name="email" />
@@ -114,128 +185,113 @@
     </div>
   </section>
 
-  <!-- SUBSCRIBE WEBSITE -->
-  <section class="hidden lg:flex font-mainFont mt-[500px]">
-    <div class="lg:px-20 px-5 mx-auto space-y-0">
-      <h3 class="text-4xl font-semibold text-center mb-10">
-        Subscribe and experience a true community
-      </h3>
-      <!-- <p class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p> -->
+  <!-- HERO -->
+  <section class="font-mainFont lg:px-20 px-5">
+    <div class="relative bg-background h-screen my-6 pt-16 rounded-[20px]">
+      <div class="lg:w-2/3 lg:px-0 px-4 space-y-6 mx-auto">
+        <h1 class="md:text-[56px] font-semibold text-center leading-tight text-[40px]">
+          Find and create <br />
+          close-knit communities
+        </h1>
 
-      <!-- Subscribe one -->
-      <div class="grid grid-cols-3 items-center">
-        <div class="">
-          <h6 class="text-2xl font-semibold">Subscribe</h6>
-          <p>
-            Enter your email address to receive future communications about the app launch, beta
-            testing opportunities, and updates.
-          </p>
+        <p class="text-center text-lg font-regular">
+          Be a part of close-knit communities of people rather than an audience. Join now and be
+          among the first to experience close-knit communities you can belong.
+        </p>
+
+        <!-- <Button
+            variant="outline"
+            @click="
+              () => {
+                toast({
+                  title: 'Uh oh! Something went wrong.',
+                  description: 'There was a problem with your request.'
+                })
+              }
+            "
+          >
+            Show Toast
+          </Button> -->
+
+        <div v-if="show_alert">
+          <Alert class="border-0 text-white" :class="alert_variant">
+            <!-- <PhMagnifyingGlass weight="regular" :size="24" color="black" class="my-auto" /> -->
+            <AlertTitle>{{ alert_title }}</AlertTitle>
+            <AlertDescription> {{ alert_msg }}</AlertDescription>
+          </Alert>
         </div>
 
-        <div class="flex justify-center">
-          <img src="../../public/assets/img/subscribe-middle.png" alt="" id="logo" class="w-28" />
-        </div>
+        <vee-form :validation-schema="schema" @submit="subscribeUser">
+          <!-- Large screens -->
+          <div class="hidden lg:flex space-y-2">
+            <div class="flex w-full relative mx-auto items-center">
+              <vee-field
+                name="email"
+                type="email"
+                class="py-4 px-6 w-full text-sm rounded-full placeholder-placeholder bg-white focus:outline-none"
+                placeholder="Enter your email address"
+              />
 
-        <img src="../../public/assets/img/subscribe-widget.png" alt="" id="logo" class="" />
-        <!-- <div class="w-2/5">
-        </div> -->
-      </div>
+              <!-- BUTTON -->
+              <button
+                :disabled="on_submission"
+                class="flex pr-2 pl-4 py-1 space-x-4 items-center text-text absolute right-1 bg-primary rounded-full focus:outline-none"
+              >
+                <p>Join the waitlist</p>
+                <div class="bg-black rounded-full p-2">
+                  <img src="../../public/assets/icons/mdi-arrow-right.svg" alt="button-icon" />
+                </div>
+              </button>
+            </div>
 
-      <!-- Subscribe two -->
-      <div class="grid grid-cols-3 items-center">
-        <img src="../../public/assets/img/subscribe-widget-2.png" alt="" id="" class="" />
-
-        <div class="flex justify-center">
-          <img src="../../public/assets/img/subscribe-middle-2.png" alt="" id="" class="w-28" />
-        </div>
-
-        <div class="">
-          <h6 class="text-2xl font-semibold">Get an invite</h6>
-          <p>
-            You may receive a special invitation to join the beta testing phase once it's available.
-            Instructions on how to download the app, provide feedback and report bugs
-          </p>
-        </div>
-      </div>
-
-      <!-- Subscribe three -->
-      <div class="grid grid-cols-3 items-center">
-        <div class="">
-          <h6 class="text-2xl font-semibold">Experience and share</h6>
-          <p>
-            As part of experiencing close-knit communities, you might get additional opportunities
-            to participate in surveysor Q&A sessions.
-          </p>
-        </div>
-
-        <div class="flex justify-center">
-          <img src="../../public/assets/img/subscribe-middle-3.png" alt="" id="" class="w-28" />
-        </div>
-
-        <img src="../../public/assets/img/subscribe-widget-3.png" alt="" id="" class="" />
-        <!-- <div class="w-2/5">
-        </div> -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SUBSCRIBE MOBILE -->
-  <section class="lg:hidden font-mainFont mt-[600px]">
-    <div class="lg:px-20 px-5 mx-auto space">
-      <h3 class="text-4xl font-semibold text-left mb-10">
-        Subscribe and experience a true community
-      </h3>
-      <!-- <p class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p> -->
-
-      <div class="space-y-24">
-        <!-- Subscribe one -->
-        <div class="items-center space-y-5">
-          <div class="bg-primary p-2 rounded-full w-12 flex justify-center items-center">
-            <p class="font-semibold text-2xl">1</p>
+            <!-- <p class="text-red-600 text-center">Error Message</p> -->
           </div>
-          <div class="">
-            <h6 class="text-2xl font-semibold">Subscribe</h6>
-            <p>
-              Lhoops is a platform for creating and finding close-knit communities where you are a
-            </p>
-          </div>
-          <img src="../../public/assets/img/subscribe-widget.png" alt="" id="logo" class="" />
-        </div>
 
-        <!-- Subscribe two -->
-        <div class="items-center space-y-5">
-          <div class="bg-primary p-2 rounded-full w-12 flex justify-center items-center">
-            <p class="font-semibold text-2xl">2</p>
-          </div>
-          <div class="">
-            <h6 class="text-2xl font-semibold">Get an invite</h6>
-            <p>
-              Lhoops is a platform for creating and finding close-knit communities where you are a
-            </p>
-          </div>
-          <img src="../../public/assets/img/subscribe-widget-2.png" alt="" id="logo" class="" />
-        </div>
+          <!-- Mobile screens -->
+          <div class="lg:hidden space-y-2">
+            <div class="w-full mx-auto items-center space-y-2">
+              <vee-field
+                name="email"
+                type="email"
+                class="py-4 px-6 w-full text-sm rounded-full placeholder-placeholder bg-white focus:outline-none"
+                placeholder="Enter your email address"
+              />
 
-        <!-- Subscribe three -->
-        <div class="items-center space-y-5">
-          <div class="bg-primary p-2 rounded-full w-12 flex justify-center items-center">
-            <p class="font-semibold text-2xl">3</p>
+              <!-- BUTTON -->
+              <button
+                :disabled="on_submission"
+                class="flex pr-2 pl-4 py-1 space-x-4 justify-between items-center w-full text-text bg-primary rounded-full focus:outline-none"
+              >
+                <p>Join the waitlist</p>
+                <div class="bg-black rounded-full p-2">
+                  <img src="../../public/assets/icons/mdi-arrow-right.svg" alt="button-icon" />
+                </div>
+              </button>
+            </div>
+
+            <!-- <p class="text-red-600 text-center">Error Message</p> -->
+            <!-- <div class="flex justify-center">
+                <ErrorMessage class="text-red-600" name="email" />
+              </div> -->
           </div>
-          <div class="">
-            <h6 class="text-2xl font-semibold">Experience and share</h6>
-            <p>
-              Lhoops is a platform for creating and finding close-knit communities where you are a
-            </p>
+          <div class="flex justify-center">
+            <ErrorMessage class="text-red-600" name="email" />
           </div>
-          <img src="../../public/assets/img/subscribe-widget-3.png" alt="" id="logo" class="" />
-        </div>
+        </vee-form>
+
+        <!-- IMAGE -->
+        <img
+          class="mx-auto absolute left-0 right-0"
+          src="../../public/assets/img/hero-image.svg"
+          alt="hero-image"
+        />
       </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="font-mainFont lg:px-20 px-5 mt-60">
-    <div class="py-6">
+  <section class="font-mainFont pt-40 lg:px-20 px-5">
+    <div class="py-6 mt-72">
       <h3 class="text-4xl font-semibold text-left">
         Features to look <br />
         forward to
@@ -261,8 +317,8 @@
           />
           <PhMagnifyingGlass v-else weight="bold" :size="40" color="black" class="my-auto" />
           <div class="">
-            <p class="text-xl font-medium" :class="{ 'text-white': tab === 'explore' }">Explore</p>
-            <p class="text-base font-normal" :class="{ 'text-white': tab === 'explore' }">
+            <p class="text-2xl font-medium" :class="{ 'text-white': tab === 'explore' }">Explore</p>
+            <p class="text-md font-normal" :class="{ 'text-white': tab === 'explore' }">
               Find communities that share your common interests
             </p>
           </div>
@@ -282,13 +338,10 @@
           />
           <PhFaders v-else weight="bold" :size="40" color="black" class="my-auto" />
           <div class="">
-            <p class="text-xl font-medium" :class="{ 'bg-text text-white': tab === 'preference' }">
+            <p class="text-2xl font-medium" :class="{ 'bg-text text-white': tab === 'preference' }">
               Set Preferences
             </p>
-            <p
-              class="text-base font-normal"
-              :class="{ 'bg-text text-white': tab === 'preference' }"
-            >
+            <p class="text-md font-normal" :class="{ 'bg-text text-white': tab === 'preference' }">
               Toggle filters that help you find the right communities
             </p>
           </div>
@@ -308,10 +361,10 @@
           />
           <PhPlusCircle v-else weight="bold" :size="40" color="black" class="my-auto" />
           <div class="">
-            <p class="text-xl font-medium" :class="{ 'text-white': tab === 'new' }">
+            <p class="text-2xl font-medium" :class="{ 'text-white': tab === 'new' }">
               Create lhoops
             </p>
-            <p class="text-base font-normal" :class="{ 'text-white': tab === 'new' }">
+            <p class="text-md font-normal" :class="{ 'text-white': tab === 'new' }">
               Create your own community to share
             </p>
           </div>
@@ -332,8 +385,8 @@
           />
           <PhPaperPlaneTilt v-else weight="bold" :size="40" color="black" class="my-auto" />
           <div class="">
-            <p class="text-xl font-medium" :class="{ 'text-white': tab === 'invite' }">Invites</p>
-            <p class="text-base font-normal" :class="{ 'text-white': tab === 'invite' }">
+            <p class="text-2xl font-medium" :class="{ 'text-white': tab === 'invite' }">Invites</p>
+            <p class="text-md font-normal" :class="{ 'text-white': tab === 'invite' }">
               Access your invitations to join communities
             </p>
           </div>
@@ -354,8 +407,8 @@
           />
           <PhChatCenteredText v-else weight="bold" :size="40" color="black" class="my-auto" />
           <div class="">
-            <p class="text-xl font-medium" :class="{ 'text-white': tab === 'chat' }">Chat room</p>
-            <p class="text-base font-normal" :class="{ 'text-white': tab === 'chat' }">
+            <p class="text-2xl font-medium" :class="{ 'text-white': tab === 'chat' }">Chat room</p>
+            <p class="text-md font-normal" :class="{ 'text-white': tab === 'chat' }">
               Have conversations with members individually or in groups
             </p>
           </div>
@@ -537,53 +590,46 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="font-mainFont mt-60">
+  <section class="font-mainFont pt-60">
     <div
-      class="bg-cover bg-no-repeat h-[638px] items-center"
-      style="background-image: url('../../public/assets/img/about-us-bg-image.png')"
+      class="bg-cover bg-no-repeat h-screen hidden lg:flex items-end"
+      style="background-image: url('../../public/assets/img/background_image.svg')"
     >
       <!-- Your content here -->
-      <div class="lg:px-20 px-5 h-full flex items-center">
-        <div class="lg:w-2/5">
-          <img
-            src="../../public/assets/icons/logo-white.svg"
-            alt=""
-            id="logo"
-            class="flex w-28 md:w-28 z-10 py-6"
-          />
-          <h3 class="lg:text-4xl text-2xl font-semibold mb-10 text-white">
-            About this <br />
-            project
-          </h3>
-          <p class="text-white text-base leading-7">
-            Lhoops is a platform for creating and finding close-knit communities where you are a
-            member and not part of an audience. Communities where you can be yourself and share what
-            you want all anonymously. Lhoops in the beta phase, subscribe now and join the waitlist
-            of eager members who want to experience how they can create and explore close-knit
-            communities.
-          </p>
-        </div>
+      <div class="space-y-6 pb-10">
+        <h3 class="lg:text-4xl text-2xl font-semibold text-center">About the project</h3>
+        <p class="font-normal text-center lg:w-1/2 px-5 mx-auto">
+          Lhoops is a platform for creating and finding close-knit communities where you are a
+          member and not part of an audience. Communities where you can be yourself and share what
+          you want all anonymously. Lhoops in the beta phase, subscribe now and join the waitlist of
+          eager members who want to experience how they can create and explore close-knit
+          communities.
+        </p>
       </div>
     </div>
 
-    <!-- Your mobile content here -->
-    <!-- <div class="lg:hidden space-y-4">
+    <!-- Your content here -->
+    <div class="lg:hidden space-y-4">
       <h3 class="lg:text-4xl text-2xl font-semibold text-center">About the project</h3>
-      <p class="font-normal text-white">
+      <p class="font-normal text-center lg:w-1/2 px-5 mx-auto">
         member and not an audience. A Communities where you can be yourself and share what you want
         all anonymously. Lhoops in a beta phase, subscribe now and join the waitlist of eager
         members who want to experience how they can create and explore close-knit communities.
       </p>
-    </div> -->
+    </div>
   </section>
 
   <!-- FAQs -->
-  <section class="font-mainFont lg:px-20 px-5 flex mt-60">
-    <div class="lg:space-y-8 space-y-8 lg:w-3/4 w-full mx-auto">
-      <div class="lg:w-1/2 space-y-4 mx-auto">
-        <h3 class="text-4xl font-semibold text-center">Check out the most frequently questions</h3>
+  <section class="font-mainFont pt-64 lg:px-20 px-5">
+    <div class="lg:flex lg:space-y-0 space-y-8">
+      <div class="lg:w-1/3 space-y-4">
+        <h3 class="text-4xl font-semibold text-left">
+          Check out the <br />
+          most frequently <br />
+          questions
+        </h3>
       </div>
-      <div class="flex justify-center items-center">
+      <div class="lg:w-2/3 flex justify-center items-center">
         <Accordion type="single" class="w-full" collapsible :default-value="defaultValue">
           <AccordionItem v-for="item in accordionItems" :key="item.value" :value="item.value">
             <AccordionTrigger>{{ item.title }}</AccordionTrigger>
@@ -596,8 +642,15 @@
     </div>
   </section>
 
+  <!-- SOCIALS IMAGE -->
+  <!-- <section class="pt-72 px-20">
+      <div class="flex justify-center">
+        <img src="../public/assets/img/social-media.png" alt="" id="explore-display" class="" />
+      </div>
+    </section> -->
+
   <!-- SOCIALS -->
-  <section class="font-mainFont lg:px-20 px-5 mt-60">
+  <section class="font-mainFont pt-72 lg:px-20 px-5">
     <div
       class="lg:flex bg-background rounded-[20px] lg:space-x-10 lg:space-y-0 space-y-10 px-10 lg:py-0 pt-10"
     >
@@ -619,12 +672,12 @@
       </div>
       <img src="../../public/assets/img/sm-image.svg" alt="" id="social-media-display" class="" />
       <!-- <div class="">
-      </div> -->
+        </div> -->
     </div>
   </section>
 
   <!-- CALL TO ACTION -->
-  <section class="font-mainFont pt-60 lg:px-20 px-5">
+  <section class="font-mainFont pt-40 lg:px-20 px-5">
     <div class="lg:w-2/3 space-y-4 mx-auto">
       <h3 class="lg:text-4xl text-2xl font-semibold text-center">Join the waitlist</h3>
       <!-- <p class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p> -->
@@ -653,7 +706,7 @@
           </div>
         </div>
 
-        <!-- Mobile screens -->
+        <!-- MOBILE screens -->
         <div class="lg:hidden space-y-2">
           <div class="w-full mx-auto items-center space-y-2">
             <vee-field
